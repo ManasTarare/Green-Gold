@@ -375,11 +375,11 @@ atexit.register(_on_exit)
 # ENTRY POINT
 # ══════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     print("=" * 55)
     print("   GreenGold — DQN Datacenter Intelligence")
     print(f"   Actions : {N_ACTIONS}  |  Obs dim : {OBS_DIM}")
     print(f"   Real GPU: {_REAL_GPU}  |  Real workers: {_REAL_WORKERS}")
+    print(f"   Port    : {port}")
     print("=" * 55)
-    print("   Open http://localhost:5000 in your browser")
-    print("=" * 55)
-    app.run(debug=False, port=5000)
+    app.run(debug=False, host="0.0.0.0", port=port)
